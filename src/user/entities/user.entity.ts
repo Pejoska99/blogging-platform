@@ -1,6 +1,7 @@
+
 import { UserProfile } from "src/user-profile/entities/user-profile.entity";
 import { Role } from "src/util/role.enum";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('user')
 export class User {
@@ -21,9 +22,8 @@ export class User {
     })
     role: Role
 
-    @OneToOne(() => UserProfile)
-    @JoinColumn() 
+    @OneToOne(() => UserProfile, (userProfile)=>userProfile.user)
     userProfile: UserProfile;
 
-    
+
 }

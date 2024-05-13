@@ -1,7 +1,8 @@
 
 import { Comment } from "src/comments/entities/comment.entity";
 import { Post } from "src/post/entities/post.entity";
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/entities/user.entity";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class UserProfile {
@@ -22,6 +23,10 @@ export class UserProfile {
 
     @OneToMany(()=> Comment, (comment) => comment.userProfile)
     comments: Comment[]
- 
+
+    @OneToOne(() => User, (user) => user.userProfile, { cascade: true })
+    @JoinColumn({name: 'userId'}) 
+    user: User;
+
     
 }

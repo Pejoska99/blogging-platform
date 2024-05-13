@@ -39,7 +39,7 @@
     "pet": "^1.0.1",
     "pg": "^8.11.5",
     "reflect-metadata": "^0.2.0",
-    "resource": "^0.8.1",
+    "resource": "^0.5.5",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.20",
     "uuid": "^9.0.1"
